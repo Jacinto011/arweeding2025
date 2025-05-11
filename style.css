@@ -5,6 +5,7 @@ body {
     color: #3e3e3e;
     margin: 0;
     padding: 0;
+    padding-top: 70px; /* para compensar a navbar fixa */
   }
   
   /* Cabeçalho principal */
@@ -13,6 +14,7 @@ body {
     padding: 3rem 1rem;
     background-color: #fff;
     border-bottom: 2px solid #e0c285;
+
   }
   
   .titulo-principal h1 {
@@ -67,6 +69,8 @@ body {
   .nav-menu {
     text-align: center;
     margin: 2rem 0;
+    height: 11%;
+    margin-top: 0px;
   }
   
   .nav-menu a {
@@ -136,6 +140,8 @@ body {
     padding: 0.5rem;
     margin-bottom: 0.3rem;
     border-radius: 4px;
+    list-style-type: none; /* Remove os pontinhos */
+    padding-left: 0; /* Remove o padding à esquerda */
   }
   
   /* Adicione isso ao final do seu CSS ou na seção do .titulo-principal */
@@ -155,4 +161,70 @@ body {
     color: #b3924f;
     animation: fadeInUp 1s ease-out;
   }
+
+  .nav-menu {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .menu-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    display: none;
+    cursor: pointer;
+  }
+  
+  .menu-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .menu-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    color: #b3924f;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  
+    .menu-links {
+      display: none;
+      flex-direction: column;
+      background-color: #fff;
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+    }
+  
+    .menu-links.show {
+      display: flex;
+    }
+  }
+  
+
+  
   

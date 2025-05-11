@@ -125,3 +125,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   carregarConfirmados();
 });
+
+document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('menuLinks').classList.toggle('show');
+});
