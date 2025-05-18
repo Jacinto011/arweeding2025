@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galeria Moderna</title>
+  <link rel="shortcut icon" href="assets/logo.jpg" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fdf6ec;
+      color: #4b3621;
+    }
+
+    .gallery {
+      column-count: 3;
+      column-gap: 1rem;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .voltar-btn {
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        column-count: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <a href="javascript:history.back()" class="btn btn-outline-secondary voltar-btn">
+      ← Voltar
+    </a>
+
+    <h1 class="text-center mb-4">📸 Galeria de Momentos</h1>
+
+    <div class="gallery">
+      <!-- Galeria de 15 imagens com dados para o modal -->
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 1 especial.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 1">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 2 incrível.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 2">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 3 inesquecível.">
+        <img src="assets/terno1.jpg" alt="Foto 3">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 4 bonito.">
+        <img src="assets/vestido 1 creme.jpg" alt="Foto 4">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 5 alegre.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 5">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 6 tranquilo.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 6">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 7 divertido.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 7">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 8 marcante.">
+        <img src="assets/logo.jpg" alt="Foto 8">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 9 histórico.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 9">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 10 especial.">
+        <img src="assets/igreja catolica.jpg" alt="Foto 10">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 11 encantador.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 11">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 12 mágico.">
+        <img src="assets/salao de festas.jpg" alt="Foto 12">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 13 romântico.">
+        <img src="assets/vestido 2 .jpg" alt="Foto 13">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 14 artístico.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 14">
+      </div>
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 15 final.">
+        <img src="assets/imagem/OIP.jpg" alt="Foto 15">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Bootstrap -->
+  <div class="modal fade" id="fotoModal" tabindex="-1" aria-labelledby="fotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-light border-0 shadow">
+        <div class="modal-header">
+          <h5 class="modal-title" id="fotoModalLabel">Sobre este momento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="modalTexto">
+          <!-- Conteúdo do texto da imagem -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const modalTexto = document.getElementById('modalTexto');
+    const fotoModal = document.getElementById('fotoModal');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const texto = item.getAttribute('data-texto');
+        modalTexto.textContent = texto;
+      });
+    });
+  </script>
+</body>
+</html>
