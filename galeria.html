@@ -1,137 +1,182 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Galeria Moderna</title>
-  <link rel="shortcut icon" href="assets/logo.jpg" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #fdf6ec;
-      color: #4b3621;
-    }
-
-    .gallery {
-      column-count: 3;
-      column-gap: 1rem;
-    }
-
-    .gallery-item {
-      break-inside: avoid;
-      margin-bottom: 1rem;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.03);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .voltar-btn {
-      margin-bottom: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      .gallery {
-        column-count: 1;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Horizontal Aconchegante</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <style>
+        :root {
+            --cream: #F5F0E6;
+            --brown-light: #D7CEC7;
+            --brown-medium: #8B6B5D;
+            --brown-dark: #5D4037;
+        }
+        
+        body {
+            background-color: var(--cream);
+            font-family: 'Georgia', serif;
+        }
+        
+        .gallery-container {
+            padding: 2rem;
+        }
+        
+        /* Masonry adaptado para imagens horizontais */
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 10px; /* Controla a altura das linhas */
+            gap: 15px;
+        }
+        
+        .masonry-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(93, 64, 55, 0.1);
+            background-color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        /* Classes para controle do tamanho dos itens */
+        .masonry-item-small {
+            grid-row-end: span 20; /* Mais largos que altos */
+        }
+        
+        .masonry-item-medium {
+            grid-row-end: span 25;
+        }
+        
+        .masonry-item-large {
+            grid-row-end: span 30;
+        }
+        
+        .masonry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(93, 64, 55, 0.15);
+        }
+        
+        .masonry-img {
+            width: 100%;
+            height: 200px; /* Altura fixa para enfatizar a largura */
+            object-fit: cover;
+            display: block;
+        }
+        
+        .detail-panel {
+            background-color: var(--brown-light);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .btn-back {
+            background-color: var(--brown-medium);
+            color: white;
+            border: none;
+            margin-top: 1rem;
+        }
+        
+        .btn-back:hover {
+            background-color: var(--brown-dark);
+        }
+    </style>
 </head>
 <body>
-  <div class="container py-4">
-    <a href="javascript:history.back()" class="btn btn-outline-secondary voltar-btn">
-      ← Voltar
-    </a>
-
-    <h1 class="text-center mb-4">📸 Galeria de Momentos</h1>
-
-    <div class="gallery">
-      <!-- Galeria de 15 imagens com dados para o modal -->
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 1 especial.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 1">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 2 incrível.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 2">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 3 inesquecível.">
-        <img src="assets/terno1.jpg" alt="Foto 3">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 4 bonito.">
-        <img src="assets/vestido 1 creme.jpg" alt="Foto 4">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 5 alegre.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 5">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 6 tranquilo.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 6">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 7 divertido.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 7">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 8 marcante.">
-        <img src="assets/logo.jpg" alt="Foto 8">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 9 histórico.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 9">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 10 especial.">
-        <img src="assets/igreja catolica.jpg" alt="Foto 10">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 11 encantador.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 11">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 12 mágico.">
-        <img src="assets/salao de festas.jpg" alt="Foto 12">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 13 romântico.">
-        <img src="assets/vestido 2 .jpg" alt="Foto 13">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 14 artístico.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 14">
-      </div>
-      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#fotoModal" data-texto="Momento 15 final.">
-        <img src="assets/imagem/OIP.jpg" alt="Foto 15">
-      </div>
+    <div class="container gallery-container">
+        <h1 class="text-center mb-4" style="color: var(--brown-dark);">Galeria Horizontal</h1>
+        
+        <!-- Masonry Grid com imagens horizontais -->
+        <div class="masonry-grid">
+            <!-- Item 1 -->
+            <div class="masonry-item masonry-item-large" onclick="showDetail('Paisagem de Outono', 'Horizonte alaranjado com colinas suaves e árvores em tons de ferrugem.')">
+                <img src="https://source.unsplash.com/random/1000x600/?landscape,autumn" alt="Paisagem outonal" class="masonry-img">
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="masonry-item masonry-item-medium" onclick="showDetail('Interior Aconchegante', 'Sala de estar com sofá marrom e luzes quentes ao entardecer.')">
+                <img src="https://source.unsplash.com/random/1000x600/?interior,cozy" alt="Interior" class="masonry-img">
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="masonry-item masonry-item-small" onclick="showDetail('Café da Manhã', 'Mesa posta com pães, frutas e café em estilo rústico.')">
+                <img src="https://source.unsplash.com/random/1000x600/?breakfast,table" alt="Café da manhã" class="masonry-img">
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="masonry-item masonry-item-large" onclick="showDetail('Praia ao Pôr do Sol', 'Horizonte infinito onde o mar encontra o céu em tons dourados.')">
+                <img src="https://source.unsplash.com/random/1000x600/?beach,sunset" alt="Praia" class="masonry-img">
+            </div>
+            
+            <!-- Item 5 -->
+            <div class="masonry-item masonry-item-medium" onclick="showDetail('Biblioteca', 'Prateleiras de madeira repletas de livros antigos em enquadramento amplo.')">
+                <img src="https://source.unsplash.com/random/1000x600/?library,books" alt="Biblioteca" class="masonry-img">
+            </div>
+            
+            <!-- Item 6 -->
+            <div class="masonry-item masonry-item-small" onclick="showDetail('Vinho e Queijos', 'Tabua de queijos e taças sobre mesa de madeira rústica.')">
+                <img src="https://source.unsplash.com/random/1000x600/?wine,cheese" alt="Degustação" class="masonry-img">
+            </div>
+        </div>
+        
+        <!-- Detail Panel -->
+        <div id="detailPanel" class="detail-panel">
+            <h3 id="detailTitle" style="color: var(--brown-dark);"></h3>
+            <p id="detailText" class="mt-3" style="color: var(--brown-dark);"></p>
+            <button class="btn btn-back" onclick="hideDetail()">← Voltar</button>
+        </div>
     </div>
-  </div>
 
-  <!-- Modal Bootstrap -->
-  <div class="modal fade" id="fotoModal" tabindex="-1" aria-labelledby="fotoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content bg-light border-0 shadow">
-        <div class="modal-header">
-          <h5 class="modal-title" id="fotoModalLabel">Sobre este momento</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-        <div class="modal-body" id="modalTexto">
-          <!-- Conteúdo do texto da imagem -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const modalTexto = document.getElementById('modalTexto');
-    const fotoModal = document.getElementById('fotoModal');
-
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const texto = item.getAttribute('data-texto');
-        modalTexto.textContent = texto;
-      });
-    });
-  </script>
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Animação com Framer Motion
+        const { motion } = window.Motion;
+        
+        // Converter elementos para motion components
+        document.querySelectorAll('.masonry-item').forEach(item => {
+            motion(item, {
+                hover: { scale: 1.02 },
+                tap: { scale: 0.98 }
+            });
+        });
+        
+        // Mostrar detalhes
+        function showDetail(title, text) {
+            document.getElementById('detailTitle').textContent = title;
+            document.getElementById('detailText').textContent = text;
+            document.getElementById('detailPanel').style.display = 'block';
+            
+            motion(document.getElementById('detailPanel'), {
+                opacity: [0, 1],
+                y: [20, 0]
+            });
+        }
+        
+        // Esconder detalhes
+        function hideDetail() {
+            motion(document.getElementById('detailPanel'), {
+                opacity: [1, 0],
+                y: [0, 20]
+            }, {
+                duration: 0.3,
+                onComplete: () => {
+                    document.getElementById('detailPanel').style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
