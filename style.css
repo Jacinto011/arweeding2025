@@ -1,13 +1,20 @@
         :root {
-            --primary: #8B5A2B; /* Marrom acobreado */
-            --secondary: #F5DEB3; /* Bege claro */
-            --accent: #A0522D; /* Marrom terra */
-            --light: #FFF8DC; /* Bege muito claro */
-            --dark: #4B3621; /* Marrom escuro */
-            --dress-color: #D2B48C; /* Cor dos vestidos */
-            --nav-bg: #333333; /* Cor da navbar */
+            --primary: #8B5A2B;
+            /* Marrom acobreado */
+            --secondary: #F5DEB3;
+            /* Bege claro */
+            --accent: #A0522D;
+            /* Marrom terra */
+            --light: #FFF8DC;
+            /* Bege muito claro */
+            --dark: #4B3621;
+            /* Marrom escuro */
+            --dress-color: #D2B48C;
+            /* Cor dos vestidos */
+            --nav-bg: #333333;
+            /* Cor da navbar */
         }
-        
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--light);
@@ -16,7 +23,7 @@
             padding: 0;
             line-height: 1.6;
         }
-        
+
         .navbar {
             background-color: var(--nav-bg);
             padding: 0;
@@ -25,7 +32,7 @@
             z-index: 100;
             width: 100%;
         }
-        
+
         .nav-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -35,28 +42,28 @@
             padding: 15px 20px;
             position: relative;
         }
-        
+
         .logo {
             color: white;
             font-weight: bold;
             font-size: 1.2rem;
             text-decoration: none;
         }
-        
+
         .menu-toggle {
             display: none;
             cursor: pointer;
             color: white;
             font-size: 1.5rem;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
         }
-        
+
         .nav-link {
             color: white;
             text-decoration: none;
@@ -65,45 +72,79 @@
             border-radius: 4px;
             transition: background-color 0.3s;
         }
-        
+
         .nav-link:hover {
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
-        
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
+
         header {
             text-align: center;
-            padding: 60px 0;
-            margin-bottom: 30px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            padding: 90px 0;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             border-radius: 8px;
         }
-        
-        h1, h2, h3 {
+
+        .circular-image {
+            width: 200px;
+            /* Tamanho médio - ajuste conforme necessário */
+            height: 220px;
+            /* Mesmo valor que width para manter proporção */
+            border-radius: 50%;
+            /* Isso cria o efeito circular */
+            object-fit: cover;
+            /* Garante que a imagem cubra todo o espaço sem distorcer */
+            display: block;
+            /* Remove espaços extras abaixo da imagem */
+            margin: 0 auto;
+            /* Centraliza a imagem horizontalmente (opcional) */
+        }
+
+              .circular-i {
+            width: 180px;
+            /* Tamanho médio - ajuste conforme necessário */
+            height: 200px;
+            /* Mesmo valor que width para manter proporção */
+            border-radius: 50%;
+            /* Isso cria o efeito circular */
+            object-fit: cover;
+            /* Garante que a imagem cubra todo o espaço sem distorcer */
+            display: block;
+            /* Remove espaços extras abaixo da imagem */
+            margin: 0 auto;
+            /* Centraliza a imagem horizontalmente (opcional) */
+        }
+
+        h1,
+        h2,
+        h3 {
             font-family: 'Playfair Display', serif;
             color: var(--primary);
         }
-        
+
         h1 {
             font-size: 3rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .subtitle {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
-        
+
         .countdown {
             background-color: #daa520;
             padding: 20px;
@@ -113,7 +154,7 @@
             max-width: 600px;
             color: white;
         }
-        
+
         .countdown-numbers {
             display: flex;
             justify-content: center;
@@ -121,48 +162,50 @@
             margin-top: 15px;
             flex-wrap: wrap;
         }
-        
+
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             min-width: 90px;
         }
-        
+
         .countdown-value {
             font-size: 3rem;
             font-weight: bold;
             color: white;
-             font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', serif;
         }
-        
+
         .countdown-label {
             font-size: 0.8rem;
             text-transform: uppercase;
             color: var(--secondary);
-             font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', serif;
         }
-        
+
         .section {
             background-color: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--accent);
         }
-        
-        input, textarea, select {
+
+        input,
+        textarea,
+        select {
             width: 100%;
             padding: 12px;
             border: 1px solid var(--secondary);
@@ -170,12 +213,12 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
         }
-        
+
         textarea {
             min-height: 100px;
             resize: vertical;
         }
-        
+
         button {
             background-color: var(--primary);
             color: white;
@@ -191,18 +234,18 @@
             letter-spacing: 1px;
             width: 100%;
         }
-        
+
         button:hover {
             background-color: var(--accent);
         }
-        
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .gallery-item {
             height: 200px;
             background-color: var(--secondary);
@@ -210,30 +253,30 @@
             overflow: hidden;
             position: relative;
         }
-        
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s;
         }
-        
+
         .gallery-item:hover img {
             transform: scale(1.05);
         }
-        
+
         .location {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             margin-top: 20px;
         }
-        
+
         .location-info {
             flex: 1;
             min-width: 300px;
         }
-        
+
         .location-map {
             flex: 1;
             min-width: 300px;
@@ -242,7 +285,7 @@
             border-radius: 8px;
             overflow: hidden;
         }
-        
+
         .color-palette {
             display: flex;
             flex-wrap: wrap;
@@ -250,7 +293,7 @@
             margin-top: 20px;
             justify-content: center;
         }
-        
+
         .color-box {
             width: 100px;
             height: 100px;
@@ -260,14 +303,31 @@
             justify-content: center;
             padding: 10px;
             color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             font-weight: bold;
         }
-        
+
+
+        .color-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
         .dress-code {
             margin-top: 30px;
         }
-        
+
         .dress-examples {
             display: flex;
             flex-wrap: wrap;
@@ -275,12 +335,12 @@
             justify-content: center;
             margin-top: 20px;
         }
-        
+
         .dress-card {
             width: 200px;
             text-align: center;
         }
-        
+
         .dress-image {
             height: 250px;
             background-color: var(--secondary);
@@ -288,13 +348,13 @@
             overflow: hidden;
             margin-bottom: 10px;
         }
-        
+
         .dress-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         footer {
             text-align: center;
             padding: 20px;
@@ -302,60 +362,60 @@
             border-top: 1px solid var(--secondary);
             color: var(--accent);
         }
-        
+
         .tab-container {
             margin-top: 20px;
         }
-        
+
         .tabs {
             display: flex;
             border-bottom: 1px solid var(--secondary);
             margin-bottom: 20px;
         }
-        
+
         .tab {
             padding: 10px 20px;
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: all 0.3s;
         }
-        
+
         .tab.active {
             border-bottom: 3px solid var(--primary);
             font-weight: bold;
             color: var(--primary);
         }
-        
+
         .tab-content {
             display: none;
         }
-        
+
         .tab-content.active {
             display: block;
         }
-        
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 2rem;
             }
-            
+
             .subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .countdown-value {
                 font-size: 1.5rem;
             }
-            
+
             .countdown-item {
                 min-width: 60px;
             }
-            
+
             .nav-container {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .nav-link {
                 margin: 5px 0;
                 width: 100%;
@@ -369,7 +429,7 @@
             .menu-toggle {
                 display: block;
             }
-            
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -379,61 +439,65 @@
                 background-color: var(--nav-bg);
                 flex-direction: column;
                 padding: 15px 0;
-                border-top: 1px solid rgba(255,255,255,0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
-            
+
             .nav-link {
                 width: 100%;
                 text-align: center;
                 margin: 5px 0;
                 padding: 10px 20px;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             .subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .countdown-value {
                 font-size: 1.5rem;
             }
-            
+
             .countdown-item {
                 min-width: 60px;
             }
-            
+
             .location {
                 flex-direction: column;
             }
-            
-            .location-map, .location-info {
+
+            .location-map,
+            .location-info {
                 min-width: 100%;
             }
-            
+
             .guest-list-container {
                 grid-template-columns: 1fr;
             }
         }
 
         .botao-personalizado {
-        background-color: #ffc107; /* Amarelo */
-        color: #333; /* Texto escuro */
-        border: 2px solid #ffc107;
-        padding: 12px 25px;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        margin-top: 10px;
-    }
+            background-color: #ffc107;
+            /* Amarelo */
+            color: #333;
+            /* Texto escuro */
+            border: 2px solid #ffc107;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
 
-    .botao-personalizado:hover {
-        background-color: #e0a800; /* Amarelo mais escuro no hover */
-    }
+        .botao-personalizado:hover {
+            background-color: #e0a800;
+            /* Amarelo mais escuro no hover */
+        }
