@@ -337,12 +337,12 @@
         }
 
         .dress-card {
-            width: 200px;
+            width: 280px;
             text-align: center;
         }
 
         .dress-image {
-            height: 250px;
+            height: 300;
             background-color: var(--secondary);
             border-radius: 8px;
             overflow: hidden;
