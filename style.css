@@ -87,9 +87,9 @@
         header {
             text-align: center;
             padding: 90px 0;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
             margin-top: 10px;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/Galeria/imagme2.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -111,7 +111,7 @@
             /* Centraliza a imagem horizontalmente (opcional) */
         }
 
-              .circular-i {
+        .circular-i {
             width: 180px;
             /* Tamanho médio - ajuste conforme necessário */
             height: 200px;
@@ -139,10 +139,51 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .subtitle {
+        /* Adicione estas importações no topo do seu CSS */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital@1&display=swap');
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-top: -20px;
+            margin-bottom: 50px;
+            color: #f4d963;
+            transform: rotate(1.5deg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: normal;
+            line-height: 0.9;
+            text-align: center;
+
+            /* ou a cor do texto desejada */
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+            transform: rotate(1.5deg);
+            display: inline-block;
+            color: #fffaf5;
+            /* tom dourado/bege */
+        }
+
+        .date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #555;
+            /* cor mais suave para a data */
+        }
+
+        /* Estilo para o texto "O nosso casamento..." */
+        .wedding-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin: 20px 0;
+            text-align: center;
+            color: #000;
         }
 
         .countdown {
@@ -500,4 +541,39 @@
         .botao-personalizado:hover {
             background-color: #e0a800;
             /* Amarelo mais escuro no hover */
+        }
+
+        .section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .gift-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .gift-table th,
+        .gift-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .gift-table th {
+            background-color: var(--primary);
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gift-table tr:nth-child(even) {
+            background-color: var(--light);
+        }
+
+        .gift-table tr:hover {
+            background-color: var(--secondary);
         }
