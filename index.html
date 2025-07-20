@@ -156,94 +156,110 @@
             </div>
         </div>
 
-        <div class="section" id="rsvp">
-            <h2>Confirmação de Presença</h2>
+      <div class="section" id="rsvp">
+    <h2>Confirmação de Presença</h2>
 
-            <div class="tab-container">
-                <div class="tabs">
-                    <div class="tab active" data-tab="rsvp-tab">RSVP</div>
-                    <div class="tab" data-tab="submit-invite">Submeter Convite</div>
-                </div>
-
-                <div id="rsvp-tab" class="tab-content active">
-                    <form id="rsvpForm">
-                        <div class="form-group">
-                            <label for="name">Nome Completo</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="attending">Você comparecerá?</label>
-                            <select id="attending" name="attending" required>
-                                <option value="">Selecione...</option>
-                                <option value="yes">Sim, com alegria!</option>
-                                <option value="no">Infelizmente não poderei</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="guests">Número de convidados incluindo você</label>
-                            <select id="guests" name="guests">
-                                <option value="1" selected>1 pessoa</option>
-                                <option value="2">2 pessoas</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Mensagem para os noivos (opcional)</label>
-                            <textarea id="message" name="message"
-                                placeholder="Deixe a sua mensagem para os noivos"></textarea>
-                        </div>
-
-                        <button type="submit">CONFIRMAR PRESENÇA</button>
-                    </form>
-                </div>
-
-                <div id="submit-invite" class="tab-content">
-                    <form id="inviteForm">
-                        <div class="form-group">
-                            <label for="invite-name">Seu Nome</label>
-                            <input type="text" id="invite-name" name="invite-name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="invite-email">Seu E-mail</label>
-                            <input type="email" id="invite-email" name="invite-email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="invite-code">Código do Convite</label>
-                            <input type="text" id="invite-code" name="invite-code" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="invite-photo">Foto do Convite (opcional)</label>
-                            <input type="file" id="invite-photo" name="invite-photo" accept="image/*">
-                        </div>
-
-                        <button type="submit">ENVIAR CONVITE</button>
-                    </form>
-                </div>
-            </div>
+    <div class="tab-container">
+        <div class="tabs">
+            <div class="tab active" data-tab="create-invite">Criar Convite</div>
+            <div class="tab" data-tab="guest-list">Lista de Convidados</div>
         </div>
 
-        <!-- Restante do conteúdo permanece igual... -->
-
-        <div class="section" id="guests">
-            <h2>Lista de Convidados</h2>
-            <div class="guest-list">
-                <h3>Nossos Queridos Convidados</h3>
-                <div class="guest-list-container" id="guestList">
-                    <!-- Os convidados serão carregados aqui via JavaScript -->
-                    <p>Carregando lista de convidados...</p>
+        <div id="create-invite" class="tab-content active">
+            <form id="inviteForm">
+                <h3>Dados Pessoais</h3>
+                <div class="form-group">
+                    <label for="full-name">Nome Completo</label>
+                    <input type="text" id="full-name" name="full-name" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contacto</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="companion">Vai acompanhado?</label>
+                    <select id="companion" name="companion" required>
+                        <option value="">Selecione...</option>
+                        <option value="no">Não</option>
+                        <option value="yes">Sim</option>
+                    </select>
+                </div>
+
+                <div id="companion-details" style="display: none;">
+                    <div class="form-group">
+                        <label for="companion-name">Nome do Acompanhante</label>
+                        <input type="text" id="companion-name" name="companion-name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companion-relation">Relação*</label>
+                        <select id="companion-relation" name="companion-relation">
+                            <option value="">Selecione...</option>
+                            <option value="Amigo(a)">Amigo(a)</option>
+                            <option value="Marido">Marido</option>
+                            <option value="Esposa">Esposa</option>
+                            <option value="Namorado(a)">Namorado(a)</option>
+                            <option value="Familiar">Familiar</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="form-message" style="display: none; margin: 15px 0; padding: 10px; border-radius: 5px;"></div>
+
+                <button type="submit" id="submit-btn">GERAR CONVITE</button>
+            </form>
+        </div>
+
+        <div id="guest-list" class="tab-content">
+            <h3>Lista de Convidados</h3>
+            <div class="search-container">
+                <input type="text" id="guest-search" placeholder="Pesquisar convidado...">
+            </div>
+            <div class="guest-list-container">
+                <table id="guest-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Contacto</th>
+                            <th>Código</th>
+                            <th>Acompanhante</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guest-list-body">
+                        <!-- Dados serão carregados via JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Modal para exibir código de convite -->
+<div id="invite-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Convite Gerado com Sucesso!</h3>
+        <p>Seu código de convite é:</p>
+        <div id="invite-code-display" class="invite-code"></div>
+        <p>Um e-mail foi enviado com os detalhes do seu convite.</p>
+        <button id="copy-invite-code">Copiar Código</button>
+    </div>
+</div>
+
+<script src="rsvp.js"></script>
+
+<style>
+
+</style>
 
         <div class="section">
             <h2>Nossa Lista de Presentes</h2>
@@ -280,7 +296,7 @@
                     </tr>
                     <tr>
                         <td>Cimento portland 32,5 N</td>
-                        <td>5200,00 Mzn</td>
+                        <td>535,00 Mzn</td>
                     </tr>
                     <tr>
                         <td>Arame de ligação 25 kg</td>
@@ -298,11 +314,11 @@
             <h2>Nossa História</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="assets/Galeria/foto1.jpg"
+                    <img src="assets/Galeria/foto1-min.jpg"
                         alt="Adelina e Reges">
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/Galeria/foto2.jpg"
+                    <img src="assets/Galeria/foto2-min.jpg"
                         alt="Adelina e Reges">
                 </div>
                 <div class="gallery-item">
@@ -310,17 +326,18 @@
                         alt="Adelina e Reges">
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/Galeria/foto4.jpg"
+                    <img src="assets/Galeria/foto4-min.jpg"
                         alt="Adelina e Reges">
                 </div>
             </div>
             <br>
-            <a href="galeria.html" class="botao-personalizado mt-3" id="maisFotosBtn">Mais Fotos</a>
+            <!-- <a href="galeria.html" class="botao-personalizado mt-3" id="maisFotosBtn">Mais Fotos</a> -->
+            
         </div>
 
         <footer>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-                <p>Adelina Celcia João Soares & Reges D'Ana Fernandes Tauélia</p>
+                <p>Adelina Celcia João Soares & Réges d'Ana Fernandes Tauélia</p>
                 <p>6 de Setembro de 2025</p>
                 <div style="display: flex; align-items: center; gap: 5px; margin-top: 10px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
